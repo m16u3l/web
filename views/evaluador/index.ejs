@@ -1,0 +1,34 @@
+
+<section id="contact" class="fill">
+    <div class="container wow fadeInUp">
+      <h3>Evaluadores
+      <table class='table'>
+          <tr>
+              <th>ID
+              <th>Nombre
+              <th>Email
+              <th>Area
+              <th>
+              <th>
+              <th>
+          </tr>
+          <% _.each(evaluadores, function(evaluador) { %>
+          <tr data-id="<%= evaluador.id %>" data-model="evaluador">
+              <td><%= evaluador.id %>
+              <td><%= evaluador.nombre_evaluador %>
+              <td><%= evaluador.email_evaluador %>
+              <td><%= evaluador.area_evaluador %>
+              <td><a href="/evaluador/verEvaluadores/<%= evaluador.id %>" class="btn btn-sm btn-primary">Ver</a>
+              <td><a href="/evaluador/editarEvaluador/<%= evaluador.id %>" class="btn btn-sm btn-warning">Editar</a>
+            <td><form action="/evaluador/eliminarEvaluador/<%= evaluador.id %>" method="POST"> 
+                      <input type="hidden" name="_method" value="Editar"/>
+                      <input type="submit" class="btn btn-sm btn-danger" value="Borrar"/>
+                      <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                  </form>
+              </td>
+          </tr>
+          <% }) %>
+      </table>
+      <a href="/evaluador/registroEvaluador">Crear Nuevo Usuario</a>
+ </div>
+  </section>
