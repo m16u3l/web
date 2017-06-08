@@ -14,7 +14,7 @@
             <%_.each(areas,function(area){%>
             <div class="col-lg-6 service-item">
                 <div class="service-icon"><i class="fa fa-gears"></i></div>
-                <h4 class="service-title"><a href="/area/<%= area.nombre_area%>"><%= area.nombre_area%></a></h4>
+                <h4 class="service-title"><a href="/area/ver_area/<%=area.id_area%>"><%= area.nombre_area%></a></h4>
                 <p class="service-description">Esta es el area de <%= area.nombre_area%></p>
             </div>
             <%})%>

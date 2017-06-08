@@ -1,0 +1,9 @@
+<div class="container">
+	<h2>Informacion de Area</h2>
+	<ul>
+		<li><%=area.nombre_area%></li>
+	</ul>
+	<form action="/area/editar_area/<%=area.id_area%>" method="POST" accepted-charset="utf-8">
+		<button type="submit" class="btn btn-success">Editar</button>
+	</form>
+</div> 

@@ -6,15 +6,29 @@
  */
 
 module.exports = {
+	tableName:'area',
+	autoPK:false,
+	attributes: {
+		id_area:{
+		  	type:'integer',
+		  	autoIncrement:true,
+		  	unique:true,
+		  	primaryKey:true,
+		  	columnName:'id_area'
+		},
+		nombre_area:{
+			type:'string',
+			unique:true,
+			required:true,
+			columnName:'nombre_area'
+		}/*,
 
-  attributes: {
-	  
-	  nombre_area:{
-	  	type:'string',
-	  	required:true,
-	  	columnName:'nombre_area'
-	  }
-  }
+	 	//referencias
+		evaluador:{
+			collection:'evaluador',
+			via:'area_evaluador'
+		}*/
+ 	}
 };
 
 

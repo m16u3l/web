@@ -1,28 +1,30 @@
 module.exports = {
-	registrarEvaluador:function(req,res){
-		console.log('registrar evaluador');
-		return res.view('evaluador/registroEvaluador');
+	registro_evaluador:function(req,res,next){
+		return res.view();
 	},
-	create:function(req,res){
+	registrar_evaluador:function(req,res,next){
 		var objeto_evaluador = {
-			id : req.param('id_evaluador'),
-			nombre_evaluador:req.param('nombre_evaluador'),
-			email_evaluador :req.param('email_evaluador'),
-			area_evaluador :req.param('area_evaluador')
+			ci_evaluador		:req.param('id_evaluador'),
+			nombre_evaluador	:req.param('nombre_evaluador'),
+			apellido_evaluador	:req.param('apellido_evaluador'),
+			email_evaluador 	:req.param('email_evaluador'),
+			area_evaluador 		:req.param('area_evaluador')
 		}
-		Evaluador.create(objeto_evaluador,function(err,Evaluador){
-			if(err){
-				return res.redirect('evaluador/registroEvaluador');
-			}
-			res.redirect('evaluador');
+		Evaluador.create(objeto_evaluador)
+		.then(function(evaluador){
+			console.log(evaluador);
+			return res.redirect('evaluador/index');
+		})
+		.catch(function(err){
+			return res.redirect('evaluador/registro_evaluador');
 		});
 	},
 	index: function (req, res) {
-      Evaluador.find(function foudEvaluador (err, evaluadores) {
-        if(err) return res.redirect('/evaluadores/registroEvaluador');
+      Evaluador.find(function foundEvaluador (err, evaluadores) {
+        if(err) return res.redirect('registrar_evaluador');
         res.view({
           evaluadores: evaluadores
         });
       });
   	}
-  }
+  };

@@ -1,0 +1,13 @@
+<br><br>
+<section class="fill">
+<div class="container wow fadeInUp">
+	<form action="/area/actualizar_area/<%%=area.id_area>" method="POST" accept-charset="utf-8" class="contactForm">
+		 <div class="form-group">
+		<label>Nombre Area</label>
+		<input type="text" name="nombre_area" class = "form-control" data-rule="minlen:4" id="id_area" placeholder="area" value="<%=area.id_area%>" required>
+		<br/>
+		<input type="submit" name="Crear Area" value="Registrar Area" class="btn btn-default"/>
+	</div>
+	</form>
+</div>
+</section>
